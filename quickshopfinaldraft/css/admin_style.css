@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+:root{
+   --blue: #1B80CC;
+   --backgroundblue: #F7F9FC;
+   --orange:#f39c12;
+   --red:#e74c3c;
+   --black:#1F2937;
+   --light-color:#4B5563;
+   --white:#fff;
+   --light-bg:#E5E7EB;
+   --border:.1rem solid var(--light-bg);
+   --box-shadow:0 0.4rem 0.8rem rgba(0,0,0,.08);
+   --green:#16a34a;
+   --sidebar-width: 25.5rem;
+}
+
+/* ---------- Base ---------- */
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   color:var(--black);
+}
+
+*::selection{
+   background-color: var(--blue);
+   color:var(--white);
+}
+
+*::-webkit-scrollbar{
+   height: .5rem;
+   width: 1rem;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: var(--blue);
+}
+
+body{
+   background-color: var(--backgroundblue);
+}
+
+html{
+   font-size: 68.75%;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+   scroll-padding-top: 6.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; 
+}
+a:hover {
+  text-decoration: none;
+}
+
+section {
+   padding:3rem 4rem;
+   margin: 0;
+}
+
+.disabled{
+   user-select: none;
+   pointer-events: none;
+   opacity: .5;
+}
+
+.btn,
+.delete-btn,
+.option-btn{
+   display: block;
+   width: 100%;
+   margin-top: 1rem;
+   border-radius: 0.75rem;
+   border: none;
+   color:var(--white);
+   font-size: 1.8rem;
+   padding:1.1rem 2.5rem;
+   text-transform: capitalize;
+   cursor: pointer;
+   text-align: center;
+   transition: all 0.2s ease-in-out;
+}
+
+.btn {
+   background-color: var(--blue);
+   border-radius: 0.75rem;
+   padding: 1rem 2.5rem;
+   font-weight: 500;
+   font-size: 1.25rem;
+}
+
+#btn-update {
+   background-color: var(--orange);
+   border-radius: 0.75rem;
+   padding: 1rem 2.5rem;
+   font-weight: 500;
+   font-size: 1.25rem;
+}
+
+#btn-delete {
+   background-color: var(--red);
+   border-radius: 0.75rem;
+   padding: 1rem 2.5rem;
+   font-weight: 500;
+   font-size: 1.25rem;
+}
+
+#btn-edit {
+   background-color: var(--orange);
+   border-radius: 0.75rem;
+   padding: 1rem 0.75rem;
+   font-weight: 500;
+   font-size: 1.25rem;
+}
+
+#btn-check {
+   background-color: var(--green);
+   border-radius: 0.75rem;
+   padding: 1rem 0;
+   font-weight: 500;
+   font-size: 1.25rem;
+}
+.delete-btn{
+   background-color: var(--red);
+   border-radius: 0.75rem;
+   padding: 1rem 2.5rem;
+   font-weight: 500;
+}
+
+.option-btn{   
+   background-color: var(--orange);
+   border-radius: 0.75rem;
+   padding: 1rem 2.5rem;
+   font-weight: 500;
+}
+
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover{
+   transform: translateY(-2px);
+   box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
+   color: var(--white);
+}
+
+.flex-btn{
+   display: flex;
+   flex-wrap: wrap;
+   gap:1rem;
+}
+
+.flex-btn > *{
+   flex:1;
+}
+
+.title{
+   text-align: center;
+   margin-bottom: 2rem;
+   text-transform: uppercase;
+   color:var(--black);
+   font-size: 2.2rem;
+}
+
+.logo-img{
+   height: 6rem;
+   width: auto;
+   margin: 0;
+}
+
+.nav-icons i {
+   font-size: 25px;
+   color: var(--light-color);
+   margin-left: 1.5rem;
+   cursor: pointer;
+}
+
+.nav-icons i:hover {
+   color: var(--blue);
+}
+
+.sidebar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: var(--sidebar-width);
+   height: 100%;
+   background: var(--white);
+   border-right: var(--border);
+   display: flex;
+   flex-direction: column;
+   padding: 2rem 1rem;
+   transition: 0.3s;
+   z-index: 1000;
+}
+
+.sidebar.active {
+   transform: translateX(-100%);
+}
+
+.sidebar-logo {
+   text-align: center;
+   border-bottom: 0.1rem solid var(--light-bg);
+   padding-bottom: 2rem;
+   margin-bottom: 2rem;
+}
+
+.sidebar-logo img {
+   width: 60px;
+   margin-bottom: 0.5rem;
+}
+
+.sidebar-logo h1 {
+   font-size: 1.8rem;
+   font-weight: 500;
+}
+
+.sidebar-logo .shoplogospan {
+   color: var(--blue);
+}
+
+.sidebar-nav {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   flex-grow: 1;
+}
+
+.sidebar-nav li {
+   margin-bottom: 1rem;
+}
+
+.sidebar-nav li a {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   font-size: 1.6rem;
+   color: var(--black);
+   padding: 0.8rem 1rem;
+   border-radius: 0.5rem;
+   transition: all 0.2s;
+}
+
+.sidebar-nav li a:hover {
+   background: var(--blue);
+   color: var(--white) !important;
+}
+
+.sidebar-nav li a i {
+   font-size: 1.6rem;
+}
+
+.sidebar-profile {
+   margin-top: auto;
+}
+
+.profile-dropdown {
+   position: relative;
+}
+
+.profile-dropdown .profile-toggle {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   font-size: 1.6rem;
+   cursor: pointer;
+   padding: 0.5rem;
+}
+
+.profile-dropdown .profile-toggle img {
+   width: 40px;
+   height: 40px;
+   object-fit: cover;
+   border-radius: 50%;
+   border: 2px solid var(--blue);
+}
+
+.profile-dropdown .dropdown-menu {
+   display: none;
+   position: absolute;
+   bottom: 100%;
+   left: 0;
+   width: 100%;
+   background: var(--white);
+   border: var(--border);
+   border-radius: 0.5rem;
+   box-shadow: var(--box-shadow);
+   list-style: none;
+   padding: 0.5rem 0;
+}
+
+.profile-dropdown .dropdown-menu.show {
+   display: block;
+}
+
+.profile-dropdown .dropdown-item {
+   padding: 0.8rem 1rem;
+   font-size: 1.5rem;
+   display: block;
+   color: var(--black);
+}
+
+.profile-dropdown .dropdown-item:hover {
+   background: var(--blue);
+   color: var(--white);
+}
+
+.main-content {
+   padding: 3rem 4rem;
+   transition: margin-left 0.3s;
+   background-color: var(--backgroundblue);
+   min-height: 100vh;
+}
+
+.main-content .card {
+   border: none;
+   box-shadow: var(--box-shadow) !important;
+   padding: 1.5rem !important;
+   transition: transform 0.3s, box-shadow 0.3s;
+   background-color: var(--white);
+   min-height: 16rem;
+   border-radius: 0.75rem;
+   flex-direction: column;
+   display: flex;
+   justify-content: space-between;
+}
+
+.main-content .card:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 1rem 1.5rem rgba(0,0,0,.15) !important;
+}
+
+.main-content .card h5 {
+   font-size: 3.8rem;
+   color: var(--blue);
+   font-weight: 600;
+   margin-top: 0.5rem;
+}
+
+.main-content .card p.small {
+   font-size: 1.4rem;
+   color: var(--light-color);
+   margin-bottom: 1rem;
+   line-height: 1.2;
+}
+
+.main-content .card .btn-sm {
+   font-size:  1.2rem;
+   padding: 0.6 rem 1rem;
+   border-radius: 0.5rem;
+   width: 100%;
+   margin-top: auto;
+}
+
+.sidebar.active + .main-content {
+   margin-left: 0;
+}
+
+.sidebar-toggle {
+   position: fixed;
+   top: 1rem;
+   left: 1rem;
+   z-index: 1100;
+   color: var(--white);
+   border: none;
+   border-radius: 0.5rem;
+   font-size: 1.8rem;
+   padding: 0.8rem 1.2rem;
+   transition: all 0.3s;
+}
+
+.title {
+   text-align: left;
+   margin-bottom: 2rem;
+   text-transform: uppercase;
+   font-size: 2.8rem;
+   padding-top: 1rem;
+}
+
+.chart-container {
+   position: relative;
+   padding-bottom: 75%;
+   height: 0;
+   overflow: hidden; 
+}
+
+canvas {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100% !important;
+   height: 100% !important;
+}
+
+.card h5.card-title {
+   font-size: 1.8rem;
+   font-weight: 500;
+   color: var(--black);
+   margin-bottom: 1.5rem;
+}
+thead {
+   height: 35x;
+}
+.table thead th {
+   font-size: larger;
+   text-align: center;
+}
+.table tbody td {
+   height: 90px;
+   text-align: center; 
+}
+
+@media (max-width: 1400px){
+
+}
+
+@media (max-width: 1199px){
+
+}
+
+@media (max-width: 991px){
+    html { font-size: 55%; }
+    .main-content { margin-left: 0; padding: 2rem 3rem; }
+    .quick-actions .btn { font-size: 1rem; padding: 0.6rem 1rem; }
+    table thead th, table tbody td { font-size: 1.3rem; padding: 0.6rem 0.8rem; }
+    canvas { height: 180px !important; }
+}
+
+@media (max-width: 768px){
+    canvas { height: 160px !important; }
+    .quick-actions { flex-direction: column; }
+}
+
+@media (max-width: 450px){
+    html { font-size: 50%; }
+    .flex-btn { flex-flow: column; gap: 0.5rem; }
+    .title { font-size: 3.2rem; }
+    canvas { height: 140px !important; }
+    table thead th, table tbody td { font-size: 1rem; padding: 0.4rem 0.5rem; }
+}
